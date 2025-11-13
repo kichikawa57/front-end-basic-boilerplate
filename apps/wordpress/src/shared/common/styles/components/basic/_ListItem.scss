@@ -1,0 +1,108 @@
+@use "../../import" as *;
+@use "../../../components/Basic/ListItem/Product001/style/index" as *;
+@use "../../../components/Basic/ListItem/Product002/style/index" as *;
+@use "../../../components/Basic/ListItem/Product003/style/index" as *;
+@use "../../../components/Basic/ListItem/Product004/style/index" as *;
+@use "../../../components/Basic/ListItem/Product005/style/index" as *;
+@use "../../../components/Basic/ListItem/Product006/style/index" as *;
+
+@include ListItem001(
+  (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 48,
+    number: (
+      font-size: 24,
+      color: #000,
+    ),
+    animation: (
+      color: #ccc,
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+    ),
+  )
+);
+@include ListItem002(
+  (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 24,
+    point: (
+      size: 8,
+      color: #000,
+    ),
+    animation: (
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+      color: #ccc,
+      pointColor: #ccc,
+    ),
+  )
+);
+@include ListItem003(
+  (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 24,
+    point: (
+      size: 8,
+      color: #000,
+    ),
+    animation: (
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+      color: #ccc,
+      pointColor: #ccc,
+    ),
+  )
+);
+@include ListItem004(
+  (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 32,
+    iconColor: #000,
+    animation: (
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+      color: #ccc,
+      iconColor: #ccc,
+    ),
+  )
+);
+@include ListItem005(
+  (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 24,
+    point: (
+      size: 8,
+      color: #000,
+    ),
+    animation: (
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+      color: #ccc,
+      pointColor: #ccc,
+    ),
+  )
+);
+@include ListItem006(
+  (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 44,
+    iconColor: #000,
+    animation: (
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+      opacity: 0.5,
+    ),
+  )
+);

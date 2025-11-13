@@ -1,0 +1,102 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+@use "../../../../../styles/common-components" as *;
+
+@mixin Accordion004($options) {
+  $defaults: (
+    key: "default",
+    borderColor: #eee,
+    iconColor: #000,
+    header: (
+      titleColor: #002fff,
+      textColor: #000,
+    ),
+    content: (
+      titleColor: #f00,
+      textColor: #000,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-accordion-004__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-accordion-004__wrapper--#{map.get($settings, "key")} {
+    .cm-accordion-004 {
+      position: relative;
+    }
+
+    .cm-accordion-004__header {
+      padding: em(10) em(15);
+      border-bottom: 1px solid map.get($settings, "borderColor");
+      cursor: pointer;
+    }
+
+    .cm-accordion-004__header-inner {
+      position: relative;
+    }
+
+    .cm-accordion-004__title-wrapper {
+      padding-right: em(30);
+      display: flex;
+      align-items: center;
+      gap: em(10);
+    }
+
+    .cm-accordion-004__title {
+      max-width: 1em;
+      min-width: 1em;
+      font-size: em(18);
+      font-weight: 700;
+      color: map.get(map.get($settings, "header"), "titleColor");
+    }
+
+    .cm-accordion-004__text {
+      font-size: em(18);
+      font-weight: 700;
+      color: map.get(map.get($settings, "header"), "textColor");
+    }
+
+    .cm-accordion-004__icon {
+      @include iconColor(
+        (
+          stroke: map.get($settings, "iconColor"),
+          fill: map.get($settings, "iconColor"),
+        )
+      );
+
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .cm-accordion-004__content-wrapper {
+      overflow: hidden;
+      height: 0;
+    }
+
+    .cm-accordion-004__content {
+      padding: em(10) em(15);
+      display: flex;
+      gap: em(10);
+    }
+
+    .cm-accordion-004__content-title {
+      font-size: em(18);
+      font-weight: 700;
+      color: map.get(map.get($settings, "content"), "titleColor");
+    }
+
+    .cm-accordion-004__content-text {
+      font-size: em(18);
+      font-weight: 400;
+      color: map.get(map.get($settings, "content"), "textColor");
+      line-height: 1.5;
+      word-break: break-all;
+    }
+  }
+}

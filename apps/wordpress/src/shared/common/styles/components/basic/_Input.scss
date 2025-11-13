@@ -1,0 +1,95 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Input/Product001/style/index" as *;
+@use "../../../components/Basic/Input/Product002/style/index" as *;
+@use "../../../components/Basic/Input/Product003/style/index" as *;
+@use "../../../components/Basic/Input/Product004/style/index" as *;
+@use "../../../components/Basic/Input/Product005/style/index" as *;
+@use "../../../components/Basic/Input/Product006/style/index" as *;
+
+@include Input001(
+  (
+    key: "default",
+    font-size: 18,
+    color: #000,
+    border-color: #000,
+    placeholder-color: #909090,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      borderColor: #f00,
+    ),
+  )
+);
+@include Input002(
+  (
+    key: "default",
+    font-size: 18,
+    color: #000,
+    border-color: #000,
+    placeholder-color: #909090,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      borderColor: #f00,
+    ),
+  )
+);
+@include Input003(
+  (
+    key: "default",
+    fontSize: 18,
+    color: #000,
+    borderColor: #000,
+    backgroundColor: #eee,
+    placeholderColor: #909090,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      backgroundColor: #fdd,
+    ),
+  )
+);
+@include Input004(
+  (
+    key: "default",
+    fontSize: 18,
+    color: #000,
+    backgroundColor: #eee,
+    placeholderColor: #909090,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      backgroundColor: #fdd,
+    ),
+  )
+);
+@include Input005(
+  (
+    key: "default",
+    fontSize: 18,
+    color: #000,
+    borderColor: #000,
+    backgroundColor: #eee,
+    placeholderColor: #909090,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      backgroundColor: #fdd,
+    ),
+  )
+);
+@include Input006(
+  (
+    key: "default",
+    fontSize: 18,
+    color: #000,
+    borderColor: #000,
+    placeholderColor: #909090,
+    backgroundColor: #fff,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      borderColor: #f00,
+    ),
+  )
+);

@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+@mixin List001($options) {
+  $defaults: (
+    key: "default",
+    columngap: 10,
+    rowgap: 40,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-list-001__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-list-001__wrapper--#{map.get($settings, "key")} {
+    .cm-list-001 {
+      display: flex;
+    }
+
+    .cm-list-001--001,
+    .cm-list-001--002 {
+      flex-direction: column;
+      gap: em(map.get($settings, "columnGap"));
+    }
+
+    .cm-list-001--002 {
+      .cm-list-001__item {
+        border-bottom: 1px solid #000;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    .cm-list-001--003 {
+      gap: em(map.get($settings, "rowGap"));
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "../../import" as *;
+@use "../../../components/Basic/FrameNumber/Product001/style/index" as *;
+
+@include FrameNumber001(
+  (
+    key: "default",
+    background: #e7e7e7,
+    borderColor: #000,
+    numberColor: #000,
+  )
+);

@@ -1,0 +1,28 @@
+@use "../../import" as *;
+@use "../../../components/Basic/CheckBox/Product001/style/index" as *;
+@use "../../../components/Basic/CheckBox/Product002/style/index" as *;
+
+@include CheckBox001(
+  (
+    key: "default",
+    backgroundColor: #fff,
+    borderColor: #000,
+    checked: (
+      markColor: #fff,
+      backgroundColor: #000,
+      borderColor: #000,
+    ),
+  )
+);
+@include CheckBox002(
+  (
+    key: "default",
+    backgroundColor: #eee,
+    borderColor: #eee,
+    checked: (
+      markColor: #000,
+      backgroundColor: #eee,
+      borderColor: #eee,
+    ),
+  )
+);

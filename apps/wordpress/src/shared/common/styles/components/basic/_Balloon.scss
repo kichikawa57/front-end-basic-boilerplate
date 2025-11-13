@@ -1,0 +1,22 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Balloon/Product001/style/index" as *;
+@use "../../../components/Basic/Balloon/Product002/style/index" as *;
+
+@include Balloon001(
+  (
+    key: "default",
+    color: #000,
+    backgroundColor: #eee,
+    fontSize: 14,
+  )
+);
+@include Balloon002(
+  (
+    key: "default",
+    color: #000,
+    backgroundColor: #fff,
+    borderColor: #000,
+    borderWidth: 2,
+    fontSize: 14,
+  )
+);

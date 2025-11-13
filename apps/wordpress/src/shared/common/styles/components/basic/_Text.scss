@@ -1,0 +1,4 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Text/style/index" as *;
+
+@include Text();

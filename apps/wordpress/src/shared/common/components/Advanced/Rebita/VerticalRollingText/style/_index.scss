@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+
+@mixin VerticalRollingText($options) {
+  $defaults: (
+    key: "default",
+    fontSize: 16,
+    color: #000,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-vertical-rolling-text__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-vertical-rolling-text__wrapper--#{map.get($settings, "key")} {
+    .cm-vertical-rolling-text__inner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      white-space: nowrap;
+      display: block;
+      height: 1.5em;
+      font-size: em(map.get($settings, "fontSize"));
+      color: map.get($settings, "color");
+    }
+
+    .cm-vertical-rolling-text__contents {
+      display: block;
+    }
+
+    .cm-vertical-rolling-text {
+      display: block;
+      line-height: 1.5;
+    }
+  }
+}

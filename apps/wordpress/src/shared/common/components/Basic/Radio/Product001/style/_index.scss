@@ -1,0 +1,33 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+
+@mixin Radio001($options) {
+  $defaults: (
+    key: "default",
+    fontSize: 18,
+    color: #fff,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-radio-001__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-radio-001__wrapper--#{map.get($settings, "key")} {
+    .cm-radio-001 {
+      background-color: map.get($settings, "backgroundColor");
+      display: flex;
+      align-items: center;
+    }
+
+    .cm-radio-001__text {
+      padding-left: em(math.div(5, map.get($settings, "fontSize")) * 10);
+      font-size: em(map.get($settings, "fontSize"));
+      color: map.get($settings, "color");
+      line-height: 1;
+      cursor: pointer;
+    }
+  }
+}

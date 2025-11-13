@@ -1,0 +1,26 @@
+{
+  "name": "@apps/web",
+  "version": "1.0.0",
+  "main": "scripts/index.ts",
+  "repository": "git@github.com.bylegal:attivita/front-end-boilerplate.git",
+  "author": "kota <k.ichikawa@attivita.co.jp>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "pnpm run local",
+    "local": "cross-env NODE_ENV=local ts-node index.ts",
+    "build": "rm -rf  ./production && cross-env NODE_ENV=production ts-node index.ts",
+    "start": "browser-sync start -s 'production'",
+    "tsc": "tsc --noEmit",
+    "lint:template": "pug-lint -c .pug-lint.json .",
+    "lint:style": "stylelint --ignore-path .stylelintignore \"**/*.scss\"",
+    "lint:style:fix": "stylelint --fix --ignore-path .stylelintignore \"**/*.scss\"",
+    "lint:script": "pnpm biome check --diagnostic-level=warn .",
+    "lint:script:fix": "pnpm biome check --diagnostic-level=warn --write ."
+  },
+  "dependencies": {
+    "@core": "workspace:*"
+  },
+  "devDependencies": {
+    "cross-env": "^10.0.0"
+  }
+}

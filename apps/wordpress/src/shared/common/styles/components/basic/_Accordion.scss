@@ -1,0 +1,78 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Accordion/Product001/style/index" as *;
+@use "../../../components/Basic/Accordion/Product002/style/index" as *;
+@use "../../../components/Basic/Accordion/Product003/style/index" as *;
+@use "../../../components/Basic/Accordion/Product004/style/index" as *;
+@use "../../../components/Basic/Accordion/Product005/style/index" as *;
+
+@include Accordion001(
+  (
+    key: "default",
+    borderColor: #eee,
+    iconColor: #000,
+    header: (
+      color: #000,
+    ),
+    content: (
+      color: #000,
+    ),
+  )
+);
+@include Accordion002(
+  (
+    key: "default",
+    borderColor: #eee,
+    backgroundColor: #eee,
+    iconColor: #000,
+    header: (
+      color: #000,
+    ),
+    content: (
+      color: #000,
+    ),
+  )
+);
+@include Accordion003(
+  (
+    key: "default",
+    iconColor: #000,
+    header: (
+      color: #000,
+      barColor: #000,
+      backgroundColor: #eee,
+    ),
+    content: (
+      color: #000,
+      backgroundColor: #fff,
+    ),
+  )
+);
+@include Accordion004(
+  (
+    key: "default",
+    borderColor: #eee,
+    iconColor: #000,
+    header: (
+      color: #000,
+    ),
+    content: (
+      color: #000,
+    ),
+  )
+);
+@include Accordion005(
+  (
+    key: "default",
+    borderColor: #eee,
+    backgroundColor: #eee,
+    iconColor: #000,
+    header: (
+      titleColor: #002fff,
+      textColor: #000,
+    ),
+    content: (
+      titleColor: #f00,
+      textColor: #000,
+    ),
+  )
+);

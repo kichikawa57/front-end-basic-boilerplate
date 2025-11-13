@@ -1,0 +1,27 @@
+@use "../../../../styles/import" as *;
+
+@mixin Media() {
+  .cm-media-pc,
+  .cm-media-tablet,
+  .cm-media-sp {
+    display: none;
+  }
+
+  .cm-media-pc {
+    @include pcSize() {
+      display: block;
+    }
+  }
+
+  .cm-media-tablet {
+    @include tabletSize() {
+      display: block;
+    }
+  }
+
+  .cm-media-sp {
+    @include spSizeLess() {
+      display: block;
+    }
+  }
+}

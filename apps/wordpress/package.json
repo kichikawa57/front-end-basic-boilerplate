@@ -1,0 +1,24 @@
+{
+  "name": "@apps/wordpress",
+  "version": "1.0.0",
+  "main": "scripts/index.ts",
+  "repository": "git@github.com.bylegal:attivita/front-end-boilerplate.git",
+  "author": "kota <k.ichikawa@attivita.co.jp>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "rm -rf ./dist && pnpm run local",
+    "check:dist": "bash scripts/check-dist.sh",
+    "wp:start": "pnpm run check:dist && make start",
+    "wp:stop": "make kill",
+    "local": "cross-env NODE_ENV=local OUT_DIR=themes/test ts-node index.ts",
+    "build": "rm -rf ./production && cross-env NODE_ENV=production OUT_DIR=themes/test ts-node index.ts",
+    "tsc": "tsc --noEmit",
+    "lint:style": "stylelint --ignore-path .stylelintignore \"**/*.scss\"",
+    "lint:style:fix": "stylelint --fix --ignore-path .stylelintignore \"**/*.scss\"",
+    "lint:script": "pnpm biome check --diagnostic-level=warn .",
+    "lint:script:fix": "pnpm biome check --diagnostic-level=warn --write ."
+  },
+  "dependencies": {
+    "@core": "workspace:*"
+  }
+}

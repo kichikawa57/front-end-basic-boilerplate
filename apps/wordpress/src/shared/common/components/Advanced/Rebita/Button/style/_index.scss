@@ -1,0 +1,113 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+@use "../../../../../styles/common-components" as *;
+
+@keyframes boxbuttonArrowHover {
+  0% {
+    transform: translate(0.6rem);
+  }
+
+  75% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@mixin RebitaButton($options) {
+  $defaults: (
+    key: "default",
+    fontSize: 12,
+    backgroundColor: #000,
+    textColor: #fff,
+    iconColor: #fff,
+    borderColor: #000,
+    leftContentBorderColor: #fff,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-rebita-button__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-rebita-button__wrapper--#{map.get($settings, "key")} {
+    .cm-rebita-button__inner {
+      display: flex;
+      align-items: center;
+      border-radius: em(4);
+      height: em(47);
+      background-color: map.get($settings, "backgroundColor");
+      border: 1px solid map.get($settings, "borderColor");
+      cursor: pointer;
+
+      &:hover {
+        .cm-rebita-button__right-inner {
+          animation: boxbuttonArrowHover 0.8s $easeOutCubic forwards infinite;
+        }
+      }
+    }
+
+    .cm-rebita-button__inner--large {
+      height: em(56);
+
+      .cm-rebita-button__right {
+        width: em(56);
+      }
+    }
+
+    .cm-rebita-button__inner--middle {
+      height: em(47);
+
+      .cm-rebita-button__right {
+        width: em(47);
+      }
+    }
+
+    .cm-rebita-button__inner--small {
+      height: em(37);
+
+      .cm-rebita-button__right {
+        width: em(37);
+      }
+    }
+
+    .cm-rebita-button__left {
+      color: map.get($settings, "textColor");
+      padding: 0 em(20);
+      height: 100%;
+      flex: 1;
+      border-right: 1px solid map.get($settings, "leftContentBorderColor");
+    }
+
+    .cm-rebita-button__left-inner {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      font-size: em(map.get($settings, "fontSize"));
+      font-weight: 700;
+    }
+
+    .cm-rebita-button__right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      @include iconColor(
+        (
+          stroke: map.get($settings, "iconColor"),
+          fill: map.get($settings, "iconColor"),
+        )
+      );
+    }
+
+    .cm-rebita-button__right-inner {
+      transform: translate(0);
+      transition: transform 0.8s $easeOutCubic;
+    }
+  }
+}

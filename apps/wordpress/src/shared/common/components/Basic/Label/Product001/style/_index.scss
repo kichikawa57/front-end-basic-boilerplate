@@ -1,0 +1,58 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+@mixin Label001($options) {
+  $defaults: (
+    key: "default",
+    fontSize: 12,
+    backgroundColor: #000,
+    color: #fff,
+    borderColor: #000,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-label-001__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-label-001__wrapper--#{map.get($settings, "key")} {
+    .cm-label-001 {
+      padding-left: em(12);
+      padding-right: em(12);
+      background-color: map.get($settings, "backgroundColor");
+      color: map.get($settings, "color");
+      font-size: em(map.get($settings, "fontSize"));
+      display: inline-block;
+      white-space: nowrap;
+      line-height: 1;
+      border: 1px solid map.get($settings, "borderColor");
+    }
+
+    // type
+
+    .cm-label-001--001 {
+      border-radius: 0;
+    }
+
+    .cm-label-001--002 {
+      border-radius: em(5);
+    }
+
+    .cm-label-001--003 {
+      border-radius: em(21);
+    }
+
+    // size
+
+    .cm-label-001--size_small {
+      padding-top: em(5);
+      padding-bottom: em(5);
+    }
+
+    .cm-label-001--size_middle {
+      padding-top: em(10);
+      padding-bottom: em(10);
+    }
+  }
+}

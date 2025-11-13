@@ -1,0 +1,33 @@
+@use "../../import" as *;
+@use "../../../components/Basic/NestedListItem/Product001/style/index" as *;
+@use "../../../components/Basic/NestedListItem/Product002/style/index" as *;
+
+@include NestedListItem001(
+  (
+    key: "default",
+    fontSize: 24,
+    lineHeight: 1.25,
+    color: #000,
+    gap: 34,
+    icon: (
+      fill: #000,
+      stroke: #000,
+    ),
+  )
+);
+@include NestedListItem002(
+  (
+    key: "default",
+    fontSize: 24,
+    lineHeight: 1.25,
+    color: #000,
+    leftIcon: (
+      fill: #000,
+      stroke: #000,
+    ),
+    rightIcon: (
+      fill: #000,
+      stroke: #000,
+    ),
+  )
+);

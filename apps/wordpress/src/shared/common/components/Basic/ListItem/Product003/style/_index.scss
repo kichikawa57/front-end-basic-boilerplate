@@ -1,0 +1,79 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+@mixin ListItem003($options) {
+  $defaults: (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 24,
+    point: (
+      size: 8,
+      color: #000,
+    ),
+    animation: (
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+      color: #ccc,
+      pointColor: #ccc,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-list-item-003__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-list-item-003__wrapper--#{map.get($settings, "key")} {
+    .cm-list-item-003 {
+      cursor: pointer;
+      display: flex;
+      justify-content: left;
+
+      &:hover {
+        .cm-list-item-003__text {
+          color: map.get(map.get($settings, "animation"), "color");
+        }
+
+        .cm-list-item-003__point {
+          background-color: map.get(map.get($settings, "animation"), "pointColor");
+        }
+      }
+    }
+
+    .cm-list-item-003__text-wrapper {
+      width: 100%;
+      padding-left: em(map.get($settings, "gap"));
+    }
+
+    .cm-list-item-003__text {
+      display: block;
+      color: map.get($settings, "color");
+      font-size: em(map.get($settings, "font-size"));
+      overflow-wrap: break-word;
+      line-height: 1.5;
+      transition: color map.get(map.get($settings, "animation"), "duration") map.get(map.get($settings, "animation"), "ease");
+    }
+
+    .cm-list-item-003__point-wrapper {
+      height: calc(em(map.get($settings, "font-size")) * 1.5);
+      position: relative;
+    }
+
+    .cm-list-item-003__point {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: map.get(map.get($settings, "point"), "color");
+      width: em(map.get(map.get($settings, "point"), "size"));
+      height: em(map.get(map.get($settings, "point"), "size"));
+      transition: background-color map.get(map.get($settings, "animation"), "duration") map.get(map.get($settings, "animation"), "ease");
+
+      &:hover {
+        background-color: map.get(map.get($settings, "animation"), "color");
+      }
+    }
+  }
+}

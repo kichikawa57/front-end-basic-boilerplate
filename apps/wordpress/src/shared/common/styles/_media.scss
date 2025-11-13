@@ -1,0 +1,50 @@
+// メディアクエリの設定
+@use "variable";
+
+@mixin pcSizeOver() {
+  @media (min-width: (#{variable.$PC_SIZE}px)) {
+    @content;
+  }
+}
+
+@mixin pcSize() {
+  @media (min-width: #{variable.$TABLET_SIZE + 1}px) and (max-width: #{variable.$PC_SIZE}px) {
+    @content;
+  }
+}
+
+@mixin pcSizeLess() {
+  @media (max-width: #{variable.$TABLET_SIZE}px) {
+    @content;
+  }
+}
+
+@mixin tabletSizeOver() {
+  @media (min-width: (#{variable.$TABLET_SIZE}px)) {
+    @content;
+  }
+}
+
+@mixin tabletSize() {
+  @media (min-width: #{variable.$SP_SIZE + 1}px) and (max-width: #{variable.$TABLET_SIZE}px) {
+    @content;
+  }
+}
+
+@mixin tabletSizeLess() {
+  @media (max-width: #{variable.$SP_SIZE - 1}px) {
+    @content;
+  }
+}
+
+@mixin spSizeLess() {
+  @media (max-width: #{variable.$SP_SIZE}px) {
+    @content;
+  }
+}
+
+@mixin spSizeOver() {
+  @media (min-width: (#{variable.$TABLET_SIZE}px)) {
+    @content;
+  }
+}

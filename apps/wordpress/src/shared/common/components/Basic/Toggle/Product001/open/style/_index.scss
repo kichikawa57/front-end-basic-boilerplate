@@ -1,0 +1,91 @@
+@use "sass:map";
+@use "../../../../../../styles/import" as *;
+
+@mixin toggle001Open($options) {
+  $defaults: (
+    key: "default",
+    line-color: #000,
+    animation: (
+      background-color-before: #d9d9d9,
+      background-color-after: #fff,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-toggle-001-open__wrapper {
+    display: block;
+    position: relative;
+
+    @include baseFontSizeForEm();
+  }
+
+  .cm-toggle-001-open__wrapper--#{map.get($settings, "key")} {
+    .cm-toggle-001-open {
+      position: relative;
+      width: em(80);
+      height: em(80);
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: map.get(map.get($settings, "animation"), "background-color-before");
+        opacity: 0;
+        transform: scale(1.2);
+        transition:
+          opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1),
+          transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: map.get(map.get($settings, "animation"), "background-color-after");
+        transform: scale(0);
+        transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+        backface-visibility: hidden;
+      }
+
+      &:hover {
+        &::before {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+
+        &::after {
+          transform: scale(0.8);
+          transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s;
+        }
+      }
+    }
+
+    .cm-toggle-001-open__inner {
+      width: em(28);
+      display: flex;
+      flex-direction: column;
+      gap: em(5);
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cm-toggle-001-open__line {
+      width: 100%;
+      height: em(4);
+      background-color: map.get($settings, "line-color");
+    }
+  }
+}

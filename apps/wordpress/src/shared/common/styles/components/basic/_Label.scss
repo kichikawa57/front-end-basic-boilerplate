@@ -1,0 +1,26 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Label/Product001/style/index" as *;
+@use "../../../components/Basic/Label/Product002/style/index" as *;
+
+@include Label001(
+  (
+    key: "default",
+    fontSize: 12,
+    backgroundColor: #eee,
+    color: #000,
+    borderColor: #eee,
+  )
+);
+@include Label002(
+  (
+    key: "default",
+    fontSize: 12,
+    backgroundColor: #eee,
+    color: #000,
+    borderColor: #eee,
+    icon: (
+      fill: #000,
+      stroke: #000,
+    ),
+  )
+);

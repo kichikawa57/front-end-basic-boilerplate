@@ -1,0 +1,27 @@
+{
+  "[javascript]": {
+    // .jsファイルのデフォルトフォーマッタをbiomeに変更
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    // .jsxファイルのデフォルトフォーマッタをbiomeに変更
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    // .tsファイルのデフォルトフォーマッタをbiomeに変更
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    // .tsxファイルのデフォルトフォーマッタをbiomeに変更
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "editor.codeActionsOnSave": {
+    // ファイル保存時にフォーマッタを実行
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.fixAll.stylelint": "always",
+  },
+  "stylelint.stylelintPath": "node_modules/stylelint",
+  "stylelint.validate": ["scss"]
+}

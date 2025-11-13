@@ -1,0 +1,11 @@
+@use "../../import" as *;
+@use "../../../components/Basic/FrameIcon/Product001/style/index" as *;
+
+@include FrameIcon001(
+  (
+    key: "default",
+    background: #e7e7e7,
+    borderColor: #000,
+    iconColor: #000,
+  )
+);

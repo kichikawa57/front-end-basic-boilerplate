@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+$LOADING_SIZE_LARGE: 52;
+$LOADING_SIZE_MIDDLE: 44;
+$LOADING_SIZE_SMALL: 37;
+
+@mixin Loading001($options) {
+  $defaults: (
+    key: "default",
+    color: #000,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-loading-001__wrapper {
+    display: inline-block;
+    line-height: 0;
+
+    @include baseFontSizeForEm();
+  }
+
+  .cm-loading-001__wrapper--#{map.get($settings, "key")} {
+    .cm-loading-001 {
+      fill: map.get($settings, "color");
+    }
+
+    .cm-loading-001--size_large {
+      width: em($LOADING_SIZE_LARGE);
+      height: em($LOADING_SIZE_LARGE);
+    }
+
+    .cm-loading-001--size_middle {
+      width: em($LOADING_SIZE_MIDDLE);
+      height: em($LOADING_SIZE_MIDDLE);
+    }
+
+    .cm-loading-001--size_small {
+      width: em($LOADING_SIZE_SMALL);
+      height: em($LOADING_SIZE_SMALL);
+    }
+  }
+}

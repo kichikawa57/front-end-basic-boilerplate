@@ -1,0 +1,48 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+$LOADING_SIZE_LARGE: 48;
+$LOADING_SIZE_MIDDLE: 42;
+$LOADING_SIZE_SMALL: 36;
+
+@mixin Loading002($options) {
+  $defaults: (
+    key: "default",
+    indicatorColor: #fff,
+    backgroundColor: #000,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-loading-002__wrapper {
+    display: inline-block;
+    line-height: 0;
+
+    @include baseFontSizeForEm();
+  }
+
+  .cm-loading-002__wrapper--#{map.get($settings, "key")} {
+    .cm-loading-002__indicator {
+      fill: map.get($settings, "indicatorColor");
+    }
+
+    .cm-loading-002__background {
+      fill: map.get($settings, "backgroundColor");
+    }
+
+    .cm-loading-002--size_large {
+      width: em($LOADING_SIZE_LARGE);
+      height: em($LOADING_SIZE_LARGE);
+    }
+
+    .cm-loading-002--size_middle {
+      width: em($LOADING_SIZE_MIDDLE);
+      height: em($LOADING_SIZE_MIDDLE);
+    }
+
+    .cm-loading-002--size_small {
+      width: em($LOADING_SIZE_SMALL);
+      height: em($LOADING_SIZE_SMALL);
+    }
+  }
+}

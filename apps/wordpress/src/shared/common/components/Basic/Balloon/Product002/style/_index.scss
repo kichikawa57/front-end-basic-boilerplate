@@ -1,0 +1,134 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+@mixin Balloon002($options) {
+  $defaults: (
+    key: "default",
+    color: #000,
+    backgroundColor: #fff,
+    borderColor: #000,
+    borderWidth: 3,
+    fontSize: 14,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-balloon-002__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-balloon-002__wrapper--#{map.get($settings, "key")} {
+    .cm-balloon-002 {
+      width: 100%;
+      position: relative;
+      display: block;
+      background-color: map.get($settings, "backgroundColor");
+      border: em(map.get($settings, "borderWidth")) solid map.get($settings, "borderColor");
+      padding: em(12) em(8);
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+      }
+
+      &::before {
+        background-color: map.get($settings, "backgroundColor");
+        z-index: 1;
+      }
+
+      &::after {
+        background-color: map.get($settings, "borderColor");
+        z-index: 0;
+      }
+    }
+
+    .cm-balloon-002__content {
+      display: block;
+      font-size: em(map.get($settings, "fontSize"));
+      color: map.get($settings, "color");
+    }
+
+    .cm-balloon-002__arrow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    // arrowPosition
+
+    .cm-balloon-002--arrow-bottom {
+      &::before,
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: em(-15);
+        width: em(30);
+        height: em(15);
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+      }
+
+      &::before {
+        bottom: em(-15 + map.get($settings, "borderWidth"));
+      }
+    }
+
+    .cm-balloon-002--arrow-top {
+      &::before,
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+        top: em(-15);
+        width: em(30);
+        height: em(15);
+        clip-path: polygon(50% 0, 0 100%, 100% 100%);
+      }
+
+      &::before {
+        top: em(-15 + map.get($settings, "borderWidth"));
+      }
+    }
+
+    .cm-balloon-002--arrow-right {
+      &::before,
+      &::after {
+        right: em(-15);
+        transform: translateY(-50%);
+        top: 50%;
+        width: em(15);
+        height: em(30);
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+      }
+
+      &::before {
+        right: em(-15 + map.get($settings, "borderWidth"));
+      }
+    }
+
+    .cm-balloon-002--arrow-left {
+      &::before,
+      &::after {
+        left: em(-15);
+        transform: translateY(-50%);
+        top: 50%;
+        width: em(15);
+        height: em(30);
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      }
+
+      &::before {
+        left: em(-15 + map.get($settings, "borderWidth"));
+      }
+    }
+
+    // Type variants
+    .cm-balloon-002--001 {
+      border-radius: 0;
+    }
+
+    .cm-balloon-002--002 {
+      border-radius: em(8);
+    }
+  }
+}

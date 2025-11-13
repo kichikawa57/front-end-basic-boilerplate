@@ -1,0 +1,67 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+@use "../../../../../styles/common-components" as *;
+
+@mixin NestedListItem001($options) {
+  $defaults: (
+    key: "default",
+    fontSize: 24,
+    lineHeight: 1.25,
+    color: #000,
+    gap: 34,
+    icon: (
+      fill: #000,
+      stroke: #000,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-nested-list-item-001__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-nested-list-item-001__wrapper--#{map.get($settings, "key")} {
+    .cm-nested-list-item-001 {
+      cursor: pointer;
+      display: flex;
+      justify-content: left;
+    }
+
+    .cm-nested-list-item-001__text-wrapper {
+      width: 100%;
+      padding-left: em(map.get($settings, "gap"));
+    }
+
+    .cm-nested-list-item-001__text {
+      display: block;
+      color: map.get($settings, "color");
+      font-size: em(map.get($settings, "fontSize"));
+      overflow-wrap: break-word;
+      line-height: map.get($settings, "lineHeight");
+    }
+
+    .cm-nested-list-item-001__icon-wrapper {
+      height: calc(em(map.get($settings, "fontSize")) * map.get($settings, "lineHeight"));
+      position: relative;
+    }
+
+    .cm-nested-list-item-001__icon {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%) rotate(0deg);
+
+      &.open {
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      @include iconColor(
+        (
+          stroke: map.get(map.get($settings, "icon"), "stroke"),
+          fill: map.get(map.get($settings, "icon"), "fill"),
+        )
+      );
+    }
+  }
+}

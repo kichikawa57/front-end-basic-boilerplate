@@ -1,0 +1,17 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Loading/Product001/style/index" as *;
+@use "../../../components/Basic/Loading/Product002/style/index" as *;
+
+@include Loading001(
+  (
+    key: "default",
+    color: #000,
+  )
+);
+@include Loading002(
+  (
+    key: "default",
+    indicatorColor: #fff,
+    backgroundColor: #000,
+  )
+);

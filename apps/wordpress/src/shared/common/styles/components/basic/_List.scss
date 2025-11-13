@@ -1,0 +1,10 @@
+@use "../../import" as *;
+@use "../../../components/Basic/List/Product001/style/index" as *;
+
+@include List001(
+  (
+    key: "default",
+    columnGap: 10,
+    rowGap: 40,
+  )
+);

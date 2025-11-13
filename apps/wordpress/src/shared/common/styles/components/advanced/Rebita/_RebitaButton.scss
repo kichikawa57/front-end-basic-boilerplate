@@ -1,0 +1,9 @@
+@use "../../../import" as *;
+@use "../../../../components/Advanced/Rebita/Button/style/index" as *;
+
+@include RebitaButton(
+  (
+    key: "default",
+    backgroundColor: #000,
+  )
+);

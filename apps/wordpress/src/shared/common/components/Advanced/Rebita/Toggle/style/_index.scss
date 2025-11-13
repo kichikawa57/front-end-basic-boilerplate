@@ -1,0 +1,86 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+
+@mixin RebitaToggle($options) {
+  $defaults: (
+    key: "default",
+    backgroundColor: #000,
+    dotColor: #fff,
+    lineColor: #fff,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-rebita-toggle__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-rebita-toggle__wrapper--#{map.get($settings, "key")} {
+    .cm-rebita-toggle__inner {
+      width: em(40);
+      height: em(40);
+      border-radius: em(4);
+      background-color: map.get($settings, "backgroundColor");
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .cm-rebita-toggle__dot-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cm-rebita-toggle__dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      display: block;
+      background-color: map.get($settings, "dotColor");
+
+      &:nth-child(2) {
+        margin: 0 em(2);
+      }
+    }
+
+    .cm-rebita-toggle__close-wrapper {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: em(16);
+      height: em(16);
+    }
+
+    .cm-rebita-toggle__line-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .cm-rebita-toggle__line {
+      width: 100%;
+      height: em(2);
+      display: block;
+      background-color: map.get($settings, "lineColor");
+      transform-origin: center center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: em(2);
+
+      &:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}

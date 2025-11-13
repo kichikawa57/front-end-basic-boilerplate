@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "biomejs.biome",
+    "streetsidesoftware.code-spell-checker",
+    "rifi2k.format-html-in-php",
+    "amandeepmittal.pug",
+    "stylelint.vscode-stylelint",
+    "wordpresstoolbox.wordpress-toolbox"
+  ]
+}

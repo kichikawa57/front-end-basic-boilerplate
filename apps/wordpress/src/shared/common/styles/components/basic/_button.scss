@@ -1,0 +1,40 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Button/Product001/style/index" as *;
+@use "../../../components/Basic/Button/Product002/style/index" as *;
+
+@include button001(
+  (
+    key: "default",
+    color: #000,
+    background-color: #fff,
+    border-color: #000,
+    font-weight: 700,
+    animation: (
+      text-color: #fff,
+      background-color: #000,
+      duration: 0.25s,
+    ),
+  )
+);
+@include button002(
+  (
+    key: "default",
+    color: #000,
+    background-color: #fff,
+    border-color: #000,
+    font-weight: 700,
+    icon: (
+      stroke: #000,
+      fill: #000,
+    ),
+    animation: (
+      background-color: #000,
+      text-color: #fff,
+      duration: 0.4s,
+      icon: (
+        stroke: #fff,
+        fill: #fff,
+      ),
+    ),
+  )
+);

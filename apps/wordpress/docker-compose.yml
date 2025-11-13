@@ -1,0 +1,43 @@
+version: "3.6"
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql57
+    volumes:
+      - ./db/volume:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d/install_wordpress.sql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=wordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wp
+    depends_on:
+      - db
+    ports:
+      - "9000:80"
+    restart: always
+    volumes:
+      - ./dist/themes:/var/www/html/wp-content/themes
+      - ./wp:/var/www/html
+
+    environment:
+      - MYSQL_ROOT_PASSWORD=wordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+      - HTTPD_PHP_ERROR_LOG=true
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - "8025:8025"
+volumes:
+  db-data:
+    driver: local

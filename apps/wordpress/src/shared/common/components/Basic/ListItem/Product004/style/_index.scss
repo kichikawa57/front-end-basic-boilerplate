@@ -1,0 +1,87 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+@use "../../../../../styles/common-components" as *;
+
+@mixin ListItem004($options) {
+  $defaults: (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 24,
+    iconColor: #000,
+    animation: (
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+      color: #ccc,
+      iconColor: #ccc,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-list-item-004__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-list-item-004__wrapper--#{map.get($settings, "key")} {
+    .cm-list-item-004 {
+      cursor: pointer;
+      display: flex;
+      justify-content: left;
+
+      &:hover {
+        .cm-list-item-004__text {
+          color: map.get(map.get($settings, "animation"), "color");
+        }
+
+        .cm-list-item-004__icon {
+          @include iconColor(
+            (
+              stroke: map.get(map.get($settings, "animation"), "iconColor"),
+              fill: map.get(map.get($settings, "animation"), "iconColor"),
+            )
+          );
+        }
+      }
+    }
+
+    .cm-list-item-004__text-wrapper {
+      width: 100%;
+      padding-left: em(map.get($settings, "gap"));
+    }
+
+    .cm-list-item-004__text {
+      display: block;
+      color: map.get($settings, "color");
+      font-size: em(map.get($settings, "font-size"));
+      overflow-wrap: break-word;
+      line-height: 1.5;
+      transition: color map.get(map.get($settings, "animation"), "duration") map.get(map.get($settings, "animation"), "ease");
+    }
+
+    .cm-list-item-004__icon-wrapper {
+      height: calc(em(map.get($settings, "font-size")) * 1.5);
+      position: relative;
+    }
+
+    .cm-list-item-004__icon {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      @include iconTransition(
+        (
+          transitionStroke: stroke map.get(map.get($settings, "animation"), "duration") map.get(map.get($settings, "animation"), "ease"),
+          transitionFill: fill map.get(map.get($settings, "animation"), "duration") map.get(map.get($settings, "animation"), "ease"),
+        )
+      );
+      @include iconColor(
+        (
+          stroke: map.get($settings, "iconColor"),
+          fill: map.get($settings, "iconColor"),
+        )
+      );
+    }
+  }
+}

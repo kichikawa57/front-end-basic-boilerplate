@@ -1,0 +1,27 @@
+@use "../shared/common/styles/reset" as *;
+@use "../shared/common/styles/import" as *;
+@use "../shared/common/styles/components" as *;
+
+.test-wrap {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+
+  @media (width <= 1280px) {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+  }
+}
+
+.test {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+
+  @media (width <= 1280px) {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+  }
+}

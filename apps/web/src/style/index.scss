@@ -1,0 +1,44 @@
+@use "../shared/common/styles/reset" as *;
+@use "../shared/common/styles/import" as *;
+
+html {
+  @include baseFontSizeForRem();
+}
+
+.test-wrap {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+
+  @include spSizeLess() {
+    width: 100%;
+    height: 100%;
+    color: #000;
+  }
+}
+
+.test-rem {
+  font-size: rem(32);
+  color: #000;
+}
+
+.test {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+
+  @include spSizeLess() {
+    width: 100%;
+    height: 100%;
+    color: #000;
+  }
+}
+
+.test-text {
+  font-size: em(22);
+  margin: 0;
+
+  @include spSizeLess() {
+    font-size: em(12);
+  }
+}

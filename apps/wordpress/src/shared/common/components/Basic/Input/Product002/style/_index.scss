@@ -1,0 +1,84 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+
+@mixin Input002($options) {
+  $defaults: (
+    key: "default",
+    fontSize: 18,
+    color: #000,
+    borderColor: #000,
+    placeholderColor: #909090,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      borderColor: #f00,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-input-002__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-input-002__wrapper--#{map.get($settings, "key")} {
+    .cm-input-002 {
+      position: relative;
+      width: 100%;
+
+      &.error {
+        .cm-input-002__input {
+          border-color: map.get(map.get($settings, "error"), "borderColor");
+        }
+
+        .cm-input-002__error {
+          display: block;
+        }
+      }
+    }
+
+    .cm-input-002__input {
+      width: 100%;
+      display: block;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 1px solid map.get($settings, "borderColor");
+      font-size: em(map.get($settings, "fontSize"));
+      padding-left: em(math.div(10, map.get($settings, "fontSize")) * 10);
+      padding-right: em(math.div(10, map.get($settings, "fontSize")) * 10);
+      color: map.get($settings, "color");
+      box-sizing: border-box;
+      line-height: 1;
+
+      &::placeholder {
+        color: map.get($settings, "placeholderColor");
+      }
+    }
+
+    .cm-input-002__error {
+      display: none;
+      color: map.get(map.get($settings, "error"), "color");
+      font-size: em(map.get(map.get($settings, "error"), "fontSize"));
+      margin: em(math.div(5, map.get(map.get($settings, "error"), "fontSize")) * 10) 0 0;
+      line-height: 1;
+    }
+
+    // size
+
+    .cm-input-002--size_small {
+      .cm-input-002__input {
+        padding-top: em(math.div(5, map.get($settings, "fontSize")) * 10);
+        padding-bottom: em(math.div(5, map.get($settings, "fontSize")) * 10);
+      }
+    }
+
+    .cm-input-002--size_middle {
+      .cm-input-002__input {
+        padding-top: em(math.div(10, map.get($settings, "fontSize")) * 10);
+        padding-bottom: em(math.div(10, map.get($settings, "fontSize")) * 10);
+      }
+    }
+  }
+}

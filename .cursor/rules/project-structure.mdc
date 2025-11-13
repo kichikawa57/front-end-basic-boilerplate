@@ -1,0 +1,90 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### ✅ **Directory Structure Rules**
+
+### **Overview**
+
+The project's folder structure should be organized as follows:
+
+```
+.
+├── [Page]
+│   ├── template/
+│   ├── style/
+│   └── script/
+├── data/
+├── images/
+├── script/
+│   └── index.ts
+├── shared/
+│   ├── scripts/
+│   ├── styles/
+│   └── templates/
+├── style/
+│   └── index.scss
+└── template/
+    └── index.pug
+```
+
+---
+
+### **Directory Details**
+
+* **data/**
+
+  * Contains **JSON data** referenced from each page's template (`.pug`).
+
+* **images/**
+
+  * Stores **image files** used across the entire project.
+
+* **script/**
+
+  * Contains **TypeScript files** used throughout the project.
+  * Must include `index.ts`.
+
+* **style/**
+
+  * Contains **SCSS files** used throughout the project.
+  * Must include `index.scss`.
+
+* **template/**
+
+  * Contains **Pug template files** used throughout the project.
+  * Must include `index.pug`.
+
+* **shared/**
+
+  * Contains shared resources that affect the entire site.
+  * `scripts/` - Shared **TypeScript files**
+  * `styles/` - Shared **SCSS files**
+  * `templates/` - Shared **Pug templates**
+
+* **\[Page Name]/**
+
+  * A directory created for each page.
+  * Each page directory must include the following structure:
+
+    * `template/` - Pug template
+    * `style/` - SCSS file
+    * `script/` - TypeScript file
+
+  **Example:**
+
+  * `about/`
+
+    * `template/index.pug`
+    * `style/index.scss`
+    * `script/index.ts`
+
+---
+
+### ✅ **Best Practices**
+
+* Each page directory **must include `index.ts`, `index.scss`, and `index.pug`**.
+* Common resources should be placed in the `shared/` directory and imported into individual pages for reuse.
+* The `data/` directory is designated **exclusively for JSON data**, which is dynamically imported into Pug templates.
+* Image files should be centrally managed within the `images/` directory.

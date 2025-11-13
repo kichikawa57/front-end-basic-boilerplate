@@ -1,0 +1,137 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+
+@mixin Input006($options) {
+  $defaults: (
+    key: "default",
+    fontSize: 18,
+    color: #000,
+    borderColor: #000,
+    backgroundColor: #fff,
+    placeholderColor: #909090,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      borderColor: #f00,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-input-006__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-input-006__wrapper--#{map.get($settings, "key")} {
+    .cm-input-006 {
+      position: relative;
+      width: 100%;
+
+      &.error {
+        .cm-input-006__input-wrapper {
+          border-color: map.get(map.get($settings, "error"), "borderColor");
+        }
+
+        .cm-input-006__error {
+          display: block;
+        }
+      }
+    }
+
+    .cm-input-006__input-wrapper {
+      position: relative;
+      border: 1px solid map.get($settings, "borderColor");
+      background-color: map.get($settings, "backgroundColor");
+    }
+
+    .cm-input-006__input {
+      width: 100%;
+      display: block;
+      border: 0;
+      font-size: em(map.get($settings, "fontSize"));
+      color: map.get($settings, "color");
+      box-sizing: border-box;
+      line-height: 1;
+      background-color: map.get($settings, "backgroundColor");
+
+      &::placeholder {
+        color: map.get($settings, "placeholderColor");
+      }
+    }
+
+    .cm-input-006__icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .cm-input-006__error {
+      display: none;
+      color: map.get(map.get($settings, "error"), "color");
+      font-size: em(map.get(map.get($settings, "error"), "fontSize"));
+      margin: em(math.div(5, map.get(map.get($settings, "error"), "fontSize")) * 10) 0 0;
+      line-height: 1;
+    }
+
+    // type
+
+    .cm-input-006--001 {
+      .cm-input-006__input-wrapper,
+      .cm-input-006__input {
+        border-radius: 0;
+      }
+    }
+
+    .cm-input-006--002 {
+      .cm-input-006__input-wrapper,
+      .cm-input-006__input {
+        border-radius: em(4);
+      }
+    }
+
+    // size
+
+    .cm-input-006--size_small {
+      .cm-input-006__input {
+        padding-top: em(math.div(5, map.get($settings, "fontSize")) * 10);
+        padding-bottom: em(math.div(5, map.get($settings, "fontSize")) * 10);
+      }
+    }
+
+    .cm-input-006--size_middle {
+      .cm-input-006__input {
+        padding-top: em(math.div(10, map.get($settings, "fontSize")) * 10);
+        padding-bottom: em(math.div(10, map.get($settings, "fontSize")) * 10);
+      }
+    }
+
+    // icon position
+
+    .cm-input-006__input-wrapper--icon_position_right {
+      padding-right: em(40);
+
+      .cm-input-006__icon {
+        right: em(5);
+      }
+
+      .cm-input-006__input {
+        padding-left: em(math.div(10, map.get($settings, "fontSize")) * 10);
+        padding-right: 0;
+      }
+    }
+
+    .cm-input-006__input-wrapper--icon_position_left {
+      padding-left: em(40);
+
+      .cm-input-006__icon {
+        left: em(5);
+      }
+
+      .cm-input-006__input {
+        padding-left: 0;
+        padding-right: em(math.div(10, map.get($settings, "fontSize")) * 10);
+      }
+    }
+  }
+}

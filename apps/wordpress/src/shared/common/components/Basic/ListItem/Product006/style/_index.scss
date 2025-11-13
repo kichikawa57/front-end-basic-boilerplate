@@ -1,0 +1,62 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+@use "../../../../../styles/common-components" as *;
+
+@mixin ListItem006($options) {
+  $defaults: (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 44,
+    iconColor: #000,
+    animation: (
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+      opacity: 0.5,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-list-item-006__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-list-item-006__wrapper--#{map.get($settings, "key")} {
+    .cm-list-item-006 {
+      cursor: pointer;
+      display: flex;
+      justify-content: left;
+      transition: opacity map.get(map.get($settings, "animation"), "duration") map.get(map.get($settings, "animation"), "ease");
+
+      &:hover {
+        opacity: map.get(map.get($settings, "animation"), "opacity");
+      }
+    }
+
+    .cm-list-item-006__text-wrapper {
+      width: 100%;
+      padding-left: em(map.get($settings, "gap"));
+    }
+
+    .cm-list-item-006__text {
+      display: block;
+      color: map.get($settings, "color");
+      font-size: em(map.get($settings, "font-size"));
+      overflow-wrap: break-word;
+      line-height: 1.5;
+    }
+
+    .cm-list-item-006__frame-number-wrapper {
+      height: calc(em(map.get($settings, "font-size")) * 1.5);
+      position: relative;
+    }
+
+    .cm-list-item-006__frame-number {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+}

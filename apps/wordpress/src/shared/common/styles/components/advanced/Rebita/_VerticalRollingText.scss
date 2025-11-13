@@ -1,0 +1,17 @@
+@use "../../../import" as *;
+@use "../../../../components/Advanced/Rebita/VerticalRollingText/style/index" as *;
+
+@include VerticalRollingText(
+  (
+    key: "default",
+    fontSize: 16,
+    color: #000,
+  )
+);
+@include VerticalRollingText(
+  (
+    key: "RebitaButtonText",
+    fontSize: 12,
+    color: #fff,
+  )
+);

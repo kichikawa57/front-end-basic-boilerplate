@@ -1,0 +1,15 @@
+@use "../../import" as *;
+@use "../../../components/Basic/TextIcon/Product001/style/index" as *;
+
+@include textIcon001(
+  (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    icon: (
+      size: 24,
+      stroke: #000,
+      fill: #000,
+    ),
+  )
+);

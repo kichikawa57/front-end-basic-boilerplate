@@ -1,0 +1,73 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+@mixin ListItem001($options) {
+  $defaults: (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    gap: 30,
+    number: (
+      font-size: 24,
+      color: #000,
+    ),
+    animation: (
+      color: #ccc,
+      duration: 0.25s,
+      ease: $easeInOutCubic,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-list-item-001__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-list-item-001__wrapper--#{map.get($settings, "key")} {
+    .cm-list-item-001 {
+      cursor: pointer;
+      display: flex;
+      justify-content: left;
+
+      &:hover {
+        .cm-list-item-001__text {
+          color: map.get(map.get($settings, "animation"), "color");
+        }
+
+        .cm-list-item-001__number-text {
+          color: map.get(map.get($settings, "animation"), "color");
+        }
+      }
+    }
+
+    .cm-list-item-001__text-wrapper {
+      width: 100%;
+      padding-left: em(map.get($settings, "gap"));
+    }
+
+    .cm-list-item-001__text {
+      display: block;
+      color: map.get($settings, "color");
+      font-size: em(map.get($settings, "font-size"));
+      overflow-wrap: break-word;
+      line-height: 1.5;
+      transition: color map.get(map.get($settings, "animation"), "duration") map.get(map.get($settings, "animation"), "ease");
+    }
+
+    .cm-list-item-001__number {
+      height: calc(em(map.get($settings, "font-size")) * 1.5);
+      position: relative;
+    }
+
+    .cm-list-item-001__number-text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      color: map.get(map.get($settings, "number"), "color");
+      font-size: em(map.get(map.get($settings, "number"), "font-size"));
+      transition: color map.get(map.get($settings, "animation"), "duration") map.get(map.get($settings, "animation"), "ease");
+    }
+  }
+}

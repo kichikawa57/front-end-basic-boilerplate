@@ -1,0 +1,91 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+@mixin Balloon001($options) {
+  $defaults: (
+    key: "default",
+    color: #000,
+    backgroundColor: #eee,
+    fontSize: 14,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-balloon-001__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-balloon-001__wrapper--#{map.get($settings, "key")} {
+    .cm-balloon-001 {
+      width: 100%;
+      position: relative;
+      display: block;
+      background-color: map.get($settings, "backgroundColor");
+      padding: em(8);
+    }
+
+    .cm-balloon-001__content {
+      display: block;
+      font-size: em(map.get($settings, "fontSize"));
+      color: map.get($settings, "color");
+    }
+
+    .cm-balloon-001__arrow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    // arrowPosition
+
+    .cm-balloon-001--arrow-bottom {
+      .cm-balloon-001__arrow {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: em(8) em(8) 0;
+        border-color: map.get($settings, "backgroundColor") transparent transparent transparent;
+      }
+    }
+
+    .cm-balloon-001--arrow-top {
+      .cm-balloon-001__arrow {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 em(8) em(8);
+        border-color: transparent transparent map.get($settings, "backgroundColor");
+      }
+    }
+
+    .cm-balloon-001--arrow-right {
+      .cm-balloon-001__arrow {
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: em(8) 0 em(8) em(8);
+        border-color: transparent transparent transparent map.get($settings, "backgroundColor");
+      }
+    }
+
+    .cm-balloon-001--arrow-left {
+      .cm-balloon-001__arrow {
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: em(8) em(8) em(8) 0;
+        border-color: transparent map.get($settings, "backgroundColor") transparent transparent;
+      }
+    }
+
+    // Type variants
+    .cm-balloon-001--001 {
+      border-radius: 0;
+    }
+
+    .cm-balloon-001--002 {
+      border-radius: em(8);
+    }
+  }
+}

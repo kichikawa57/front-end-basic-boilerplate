@@ -1,0 +1,15 @@
+@use "../../import" as *;
+@use "../../../components/Basic/TextButton/Product001/style/index" as *;
+
+@include TextButton001(
+  (
+    key: "default",
+    color: #000,
+    fontSize: 12,
+    hover: (
+      color: #ccc,
+      duration: 0.3s,
+      ease: $easeInOutCubic,
+    ),
+  )
+);

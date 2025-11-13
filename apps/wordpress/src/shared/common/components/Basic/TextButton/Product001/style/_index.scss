@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+@mixin TextButton001($options) {
+  $defaults: (
+    key: "default",
+    color: #fff,
+    fontSize: 12,
+    hover: (
+      color: #000,
+      duration: 0.3s,
+      ease: $easeInOutCubic,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-text-button-001__wrapper {
+    display: block;
+
+    @include baseFontSizeForEm();
+  }
+
+  .cm-text-button-001__wrapper--#{map.get($settings, "key")} {
+    .cm-text-button-001 {
+      display: block;
+      color: map.get($settings, "color");
+      font-size: em(map.get($settings, "fontSize"));
+      transition: color map.get(map.get($settings, "hover"), "duration") map.get(map.get($settings, "hover"), "ease");
+
+      &:hover {
+        color: map.get(map.get($settings, "hover"), "color");
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "line_url": "https://exmple.com",
+  "title": "タイトル",
+  "description": "詳細",
+  "canonical": "https://exmple.com",
+  "og": {
+    "title": "タイトル",
+    "type": "website",
+    "locale": "ja",
+    "url": "https://exmple.com",
+    "description": "詳細",
+    "image": "img-ogp.png"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@example",
+    "creator": "@example"
+  }
+}

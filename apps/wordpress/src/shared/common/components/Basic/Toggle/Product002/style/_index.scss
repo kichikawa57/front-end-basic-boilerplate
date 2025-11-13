@@ -1,0 +1,153 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+
+@keyframes scaleOut {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@mixin toggle002($options) {
+  $defaults: (
+    key: "default",
+    line-color: #000,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-toggle-002__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-toggle-002__wrapper--#{map.get($settings, "key")} {
+    .cm-toggle-002 {
+      display: block;
+    }
+
+    .cm-toggle-002__inner {
+      width: em(40);
+      height: em(40);
+      position: relative;
+      transition: opacity 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &.is-open {
+        .cm-toggle-002__open-line:nth-child(1) {
+          animation: scaleOut 0.15s ease forwards;
+        }
+
+        .cm-toggle-002__open-line:nth-child(2) {
+          animation: scaleOut 0.15s 0.15s ease forwards;
+        }
+
+        .cm-toggle-002__open-line:nth-child(3) {
+          animation: scaleOut 0.15s 0.3s ease forwards;
+        }
+
+        .cm-toggle-002__close-line::after {
+          animation: scaleIn 0.15s 0.45s ease forwards;
+        }
+      }
+
+      &.is-close {
+        .cm-toggle-002__close-line::after {
+          animation: scaleOut 0.15s ease forwards;
+        }
+
+        .cm-toggle-002__open-line {
+          transform: scaleX(0);
+          animation: scaleIn 0.15s 0.15s ease forwards;
+        }
+      }
+    }
+
+    .cm-toggle-002__open {
+      width: em(28);
+      display: flex;
+      flex-direction: column;
+      gap: em(3);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cm-toggle-002__open-line {
+      width: 100%;
+      height: em(2);
+      background-color: map.get($settings, "line-color");
+      transform-origin: left;
+    }
+
+    .cm-toggle-002__close-wrapper {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cm-toggle-002__close {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cm-toggle-002__close-line {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: em(28);
+      height: em(2);
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: map.get($settings, "line-color");
+        transform: scale(0);
+      }
+
+      &:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+
+        &::after {
+          transform-origin: right;
+        }
+      }
+
+      &:nth-child(2) {
+        transform: translate(-50%, -50%) rotate(45deg);
+
+        &::after {
+          transform-origin: left;
+        }
+      }
+    }
+  }
+}

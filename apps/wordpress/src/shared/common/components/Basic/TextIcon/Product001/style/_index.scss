@@ -1,0 +1,54 @@
+@use "sass:map";
+@use "../../../../../styles/import" as *;
+@use "../../../../../styles/common-components" as *;
+
+@mixin textIcon001($options) {
+  $defaults: (
+    key: "default",
+    font-size: 24,
+    color: #000,
+    icon: (
+      fill: #000,
+      stroke: #000,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-text-icon-001__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-text-icon-001__wrapper--#{map.get($settings, "key")} {
+    .cm-text-icon-001 {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      gap: em(4);
+
+      &--icon-position_right {
+        flex-direction: row;
+      }
+
+      &--icon-position_left {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .cm-text-icon-001__text {
+      display: block;
+      color: map.get($settings, "color");
+      font-size: em(map.get($settings, "font-size"));
+      line-height: 1;
+    }
+
+    .cm-text-icon-001__icon {
+      @include iconColor(
+        (
+          stroke: map.get(map.get($settings, "icon"), "stroke"),
+          fill: map.get(map.get($settings, "icon"), "fill"),
+        )
+      );
+    }
+  }
+}

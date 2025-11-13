@@ -1,0 +1,74 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+
+@mixin TextField002($options) {
+  $defaults: (
+    key: "default",
+    fontSize: 18,
+    lineHeight: 1.5,
+    color: #000,
+    borderColor: #000,
+    placeholderColor: #909090,
+    error: (
+      fontSize: 16,
+      color: #f00,
+      borderColor: #f00,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-text-field-002__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-text-field-002__wrapper--#{map.get($settings, "key")} {
+    .cm-text-field-002 {
+      position: relative;
+      width: 100%;
+
+      &.error {
+        .cm-text-field-002__input {
+          border-color: map.get(map.get($settings, "error"), "borderColor");
+        }
+
+        .cm-text-field-002__error {
+          display: block;
+        }
+      }
+    }
+
+    $paddingTop: math.div(5, map.get($settings, "fontSize")) * 10;
+    $paddingBottom: math.div(5, map.get($settings, "fontSize")) * 10;
+
+    .cm-text-field-002__input {
+      width: 100%;
+      display: block;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 1px solid map.get($settings, "borderColor");
+      font-size: em(map.get($settings, "fontSize"));
+      padding: em($paddingTop) em(math.div(10, map.get($settings, "fontSize")) * 10) em($paddingBottom);
+      color: map.get($settings, "color");
+      box-sizing: border-box;
+      line-height: em(map.get($settings, "fontSize"));
+      height: calc((map.get($settings, "lineHeight") * 5em) + em($paddingTop) + em($paddingBottom));
+      min-height: calc((map.get($settings, "lineHeight") * 3em) + em($paddingTop) + em($paddingBottom));
+      max-height: calc((map.get($settings, "lineHeight") * 15em) + em($paddingTop) + em($paddingBottom));
+
+      &::placeholder {
+        color: map.get($settings, "placeholderColor");
+      }
+    }
+
+    .cm-text-field-002__error {
+      display: none;
+      color: map.get(map.get($settings, "error"), "color");
+      font-size: em(map.get(map.get($settings, "error"), "fontSize"));
+      margin: em(math.div(5, map.get(map.get($settings, "error"), "fontSize")) * 10) 0 0;
+      line-height: 1;
+    }
+  }
+}

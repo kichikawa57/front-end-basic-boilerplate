@@ -1,0 +1,10 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Radio/Product001/style/index" as *;
+
+@include Radio001(
+  (
+    key: "default",
+    fontSize: 18,
+    color: #000,
+  )
+);

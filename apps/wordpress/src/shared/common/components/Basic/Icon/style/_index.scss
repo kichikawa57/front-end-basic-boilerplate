@@ -1,0 +1,236 @@
+@use "sass:map";
+@use "../../../../styles/import" as *;
+
+$ICON_SIZE_LARGE: 24;
+$ICON_SIZE_MIDDLE: 20;
+$ICON_SIZE_SMALL: 18;
+
+@mixin iconTransition($options) {
+  $defaults: (
+    transitionstroke: stroke 0.3s $easeInOutCubic,
+    transitionfill: fill 0.3s $easeInOutCubic,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-icon__path {
+    transition: map.get($settings, "transitionStroke"), map.get($settings, "transitionFill");
+  }
+}
+
+@mixin iconColor($options) {
+  $defaults: (
+    stroke: #000,
+    fill: #000,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-icon__path--001 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--002 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--003 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--004 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--005 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--006 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--007 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--008 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--009 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--010 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--011 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--012 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--013 {
+    fill: map.get($settings, "fill");
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--014 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--015 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--016 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--017 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--018 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--019 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--020 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--021 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--022 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--023 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--024 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--025 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--026 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--027 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--028 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--029 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--030 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--031 {
+    stroke: map.get($settings, "stroke");
+    stroke-width: 2;
+  }
+
+  .cm-icon__path--032 {
+    stroke: map.get($settings, "stroke");
+    stroke-width: 2;
+  }
+
+  .cm-icon__path--033 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--034 {
+    fill: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--035 {
+    fill: map.get($settings, "fill");
+  }
+
+  .cm-icon__path--036 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--037 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--038 {
+    stroke: map.get($settings, "stroke");
+  }
+
+  .cm-icon__path--039 {
+    stroke: map.get($settings, "stroke");
+  }
+}
+
+@mixin icon($options) {
+  $defaults: (
+    key: "default",
+    stroke: #000,
+    fill: #000,
+    transitionStroke: stroke 0.3s $easeInOutCubic,
+    transitionFill: fill 0.3s $easeInOutCubic,
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-icon__wrapper {
+    display: block;
+    line-height: 0;
+
+    @include baseFontSizeForEm();
+  }
+
+  .cm-icon__wrapper--#{map.get($settings, "key")} {
+    @include iconColor(
+      (
+        stroke: map.get($settings, "stroke"),
+        fill: map.get($settings, "fill"),
+      )
+    );
+    @include iconTransition(
+      (
+        transitionStroke: map.get($settings, "transitionStroke"),
+        transitionFill: map.get($settings, "transitionFill"),
+      )
+    );
+
+    .cm-icon--size_large {
+      width: em($ICON_SIZE_LARGE);
+      height: em($ICON_SIZE_LARGE);
+    }
+
+    .cm-icon--size_middle {
+      width: em($ICON_SIZE_MIDDLE);
+      height: em($ICON_SIZE_MIDDLE);
+    }
+
+    .cm-icon--size_small {
+      width: em($ICON_SIZE_SMALL);
+      height: em($ICON_SIZE_SMALL);
+    }
+  }
+}

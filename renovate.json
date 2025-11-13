@@ -1,0 +1,68 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "rangeStrategy": "bump",
+  "enabledManagers": ["npm"],
+  "timezone": "Asia/Tokyo",
+  "prConcurrentLimit": 1,
+  "packageRules": [
+    {
+      "matchDepTypes": ["packageManager", "engines"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["pnpm"],
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": ["^stylelint$", "^stylelint-"],
+      "groupName": "Stylelint related packages"
+    },
+    {
+      "matchPackagePatterns": ["^pug$", "^@types/pug"],
+      "groupName": "Pug related packages"
+    },
+    {
+      "matchPackagePatterns": [
+        "^postcss$",
+        "^postcss-",
+        "^@types/postcss",
+        "^cssnano$",
+        "^@types/cssnano$",
+        "^css-declaration-sorter$",
+        "^@types/css-declaration-sorter$"
+      ],
+      "groupName": "PostCSS related packages"
+    },
+    {
+      "matchPackagePatterns": [
+        "^webpack$",
+        "^webpack-",
+        "^@types/webpack",
+        "^terser-webpack-plugin$"
+      ],
+      "groupName": "Webpack related packages"
+    },
+    {
+      "matchPackagePatterns": ["^storybook$", "^@storybook/", "^storybook-"],
+      "groupName": "Storybook related packages"
+    },
+    {
+      "description": "Ignore engines.pnpm",
+      "matchPackageNames": ["pnpm"],
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+### ✅ **Template Structure for Generated Files**
+
+---
+
+### **index.ts**
+
+```typescript
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('{pageName}');
+});
+```
+
+* Logs the page name to the console when the DOM is fully loaded.
+
+---
+
+### **index.scss**
+
+```scss
+// Import shared styles using relative path
+@use '../../shared/styles/import';
+
+.{pageName} {
+  width: 100%;
+}
+```
+
+* Applies base styles for the page container with a class name based on the page name.
+
+---
+
+### **index.pug**
+
+```pug
+extends /shared/templates/layout/_default
+
+block vars
+  -
+    var title = '{pageName}'
+    var description = ''
+    var keywords = ''
+    var url = ''
+
+block main
+  .{pageName}
+    p This is the {pageName} page.
+
+```
+
+* Extends the shared default layout.
+* Defines meta variables for the page.
+* Creates a base container with the page name as a class.
+
+---
+
+### ✅ **Directory Naming Rule**
+
+* When the command is executed for a nested directory, the **last directory name** is considered as the page name.
+
+**Example:**
+
+* Command: `Create news/post`
+
+  * Page name: `post`
+  * Generated structure:
+
+    ```
+    news/post/
+    ├── script/
+    │   └── index.ts   (Logs "post")
+    ├── style/
+    │   └── index.scss (Class name is ".post")
+    └── template/
+        └── index.pug (Title is "post")
+    ```
+
+---
+
+### ✅ **Usage Example:**
+
+If the command is `Create about`, the files will be generated as follows:
+
+* `about/script/index.ts`
+
+  ```typescript
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('about');
+  });
+  ```
+
+* `about/style/index.scss`
+
+  ```scss
+  @use '../../shared/styles/import';
+
+  .about {
+    width: 100%;
+  }
+  ```
+
+* `about/template/index.pug`
+
+  ```pug
+  extends /shared/templates/layout/_default
+
+  block vars
+    -
+      var title = 'About'
+      var description = ''
+      var keywords = ''
+      var url = ''
+
+  block main
+    .about
+      p This is the About page.
+  ```

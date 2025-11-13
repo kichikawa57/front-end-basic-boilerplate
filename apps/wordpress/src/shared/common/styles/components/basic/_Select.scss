@@ -1,0 +1,81 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Select/Product001/style/index" as *;
+@use "../../../components/Basic/Select/Product002/style/index" as *;
+@use "../../../components/Basic/Select/Product003/style/index" as *;
+@use "../../../components/Basic/Select/Product004/style/index" as *;
+
+@include Select001(
+  (
+    key: "default",
+    color: #000,
+    fontSize: 24,
+    borderColor: #000,
+    placeholder: #909090,
+    icon: (
+      stroke: #000,
+      fill: #000,
+    ),
+    error: (
+      fontSize: 16,
+      color: #f00,
+      borderColor: #f00,
+    ),
+  )
+);
+@include Select002(
+  (
+    key: "default",
+    color: #000,
+    fontSize: 24,
+    borderColor: #000,
+    placeholder: #909090,
+    icon: (
+      stroke: #000,
+      fill: #000,
+    ),
+    error: (
+      fontSize: 16,
+      color: #f00,
+      borderColor: #f00,
+    ),
+  )
+);
+@include Select003(
+  (
+    key: "default",
+    color: #000,
+    fontSize: 24,
+    borderColor: #000,
+    placeholder: #909090,
+    backgroundColor: #eee,
+    icon: (
+      stroke: #000,
+      fill: #000,
+    ),
+    error: (
+      fontSize: 16,
+      color: #f00,
+      backgroundColor: #fdd,
+    ),
+  )
+);
+@include Select004(
+  (
+    key: "default",
+    color: #000,
+    fontSize: 24,
+    placeholder: #909090,
+    backgroundColor: #eee,
+    borderColor: #eee,
+    icon: (
+      stroke: #000,
+      fill: #000,
+    ),
+    error: (
+      fontSize: 16,
+      color: #f00,
+      backgroundColor: #fdd,
+      borderColor: #fdd,
+    ),
+  )
+);

@@ -1,0 +1,12 @@
+@use "../../import" as *;
+@use "../../../components/Basic/Icon/style/index" as *;
+
+@include icon(
+  (
+    key: "default",
+    stroke: #000,
+    fill: #000,
+    transitionStroke: stroke 0.3s $easeInOutCubic,
+    transitionFill: fill 0.3s $easeInOutCubic,
+  )
+);

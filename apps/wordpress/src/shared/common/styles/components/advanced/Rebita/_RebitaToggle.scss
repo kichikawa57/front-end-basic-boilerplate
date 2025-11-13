@@ -1,0 +1,11 @@
+@use "../../../import" as *;
+@use "../../../../components/Advanced/Rebita/Toggle/style/index" as *;
+
+@include RebitaToggle(
+  (
+    key: "default",
+    backgroundColor: #000,
+    dotColor: #fff,
+    lineColor: #fff,
+  )
+);

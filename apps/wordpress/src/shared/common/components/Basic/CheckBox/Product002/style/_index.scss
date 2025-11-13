@@ -1,0 +1,92 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+
+@mixin CheckBox002($options) {
+  $defaults: (
+    key: "default",
+    backgroundColor: #eee,
+    borderColor: #eee,
+    checked: (
+      markColor: #000,
+      backgroundColor: #eee,
+      borderColor: #eee,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-checkbox-002__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-checkbox-002__wrapper--#{map.get($settings, "key")} {
+    .cm-checkbox-002 {
+      position: relative;
+    }
+
+    .cm-checkbox-002__background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: map.get($settings, "backgroundColor");
+      z-index: 0;
+      border-radius: 50%;
+    }
+
+    .cm-checkbox-002__input {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+      margin: 0;
+
+      &[type="checkbox"]:checked ~ .cm-checkbox-002__background {
+        background-color: map.get(map.get($settings, "checked"), "backgroundColor");
+      }
+
+      &[type="checkbox"]:checked ~ .cm-checkbox-002__checkmark {
+        display: block;
+      }
+    }
+
+    .cm-checkbox-002__checkmark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      display: none;
+      border-radius: 50%;
+      background-color: map.get(map.get($settings, "checked"), "markColor");
+    }
+
+    // size
+
+    .cm-checkbox-002--size_small {
+      width: rem(18);
+      height: rem(18);
+
+      .cm-checkbox-002__checkmark {
+        width: rem(10);
+        height: rem(10);
+      }
+    }
+
+    .cm-checkbox-002--size_middle {
+      width: rem(30);
+      height: rem(30);
+
+      .cm-checkbox-002__checkmark {
+        width: rem(22);
+        height: rem(22);
+      }
+    }
+  }
+}

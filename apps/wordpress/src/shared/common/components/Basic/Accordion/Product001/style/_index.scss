@@ -1,0 +1,81 @@
+@use "sass:map";
+@use "sass:math";
+@use "../../../../../styles/import" as *;
+@use "../../../../../styles/common-components" as *;
+
+@mixin Accordion001($options) {
+  $defaults: (
+    key: "default",
+    borderColor: #eee,
+    iconColor: #000,
+    header: (
+      color: #000,
+    ),
+    content: (
+      color: #000,
+    ),
+  );
+
+  $settings: map.deep-merge($defaults, $options);
+
+  .cm-accordion-001__wrapper {
+    @include baseFontSizeForEm();
+  }
+
+  .cm-accordion-001__wrapper--#{map.get($settings, "key")} {
+    .cm-accordion-001 {
+      position: relative;
+    }
+
+    .cm-accordion-001__header {
+      padding: em(10) em(15);
+      border-bottom: 1px solid map.get($settings, "borderColor");
+      cursor: pointer;
+    }
+
+    .cm-accordion-001__header-inner {
+      position: relative;
+    }
+
+    .cm-accordion-001__title-wrapper {
+      padding-right: em(30);
+    }
+
+    .cm-accordion-001__title {
+      font-size: em(18);
+      font-weight: 700;
+      color: map.get(map.get($settings, "header"), "color");
+    }
+
+    .cm-accordion-001__icon {
+      @include iconColor(
+        (
+          stroke: map.get($settings, "iconColor"),
+          fill: map.get($settings, "iconColor"),
+        )
+      );
+
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .cm-accordion-001__content-wrapper {
+      overflow: hidden;
+      height: 0;
+    }
+
+    .cm-accordion-001__content {
+      padding: em(10) em(15);
+    }
+
+    .cm-accordion-001__content-text {
+      font-size: em(18);
+      font-weight: 400;
+      color: map.get(map.get($settings, "content"), "color");
+      line-height: 1.5;
+      word-break: break-all;
+    }
+  }
+}
