@@ -1,0 +1,28 @@
+name: Renovate
+
+on:
+  schedule:
+    # 毎日午前9時(JST)に実行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 手動実行を許可
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/renovate.yml'
+      - 'renovate.json'
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v44
+        with:
+          configurationFile: renovate.json
+          token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
+          LOG_LEVEL: debug
