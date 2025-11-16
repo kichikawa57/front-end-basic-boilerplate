@@ -53,10 +53,10 @@ importers:
         version: 9.5.4(typescript@5.8.3)(webpack@5.101.0(@swc/core@1.11.29))
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.11.29)(@types/node@22.16.5)(typescript@5.8.3)
+        version: 10.9.2(@swc/core@1.11.29)(@types/node@22.19.1)(typescript@5.8.3)
       ts-node-dev:
         specifier: ^2.0.0
-        version: 2.0.0(@swc/core@1.11.29)(@types/node@22.16.5)(typescript@5.8.3)
+        version: 2.0.0(@swc/core@1.11.29)(@types/node@22.19.1)(typescript@5.8.3)
       turbo:
         specifier: ^2.5.5
         version: 2.5.5
@@ -95,8 +95,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       '@types/node':
-        specifier: ^22.16.5
-        version: 22.16.5
+        specifier: ^22.19.1
+        version: 22.19.1
       '@types/postcss-calc':
         specifier: ^8.2.0
         version: 8.2.0(postcss@8.5.6)
@@ -740,8 +740,8 @@ packages:
   '@types/node-forge@1.3.11':
     resolution: {integrity: sha512-FQx220y22OKNTqaByeBGqHWYz4cl94tpcxeFdvBo3wjG6XPBuZ0BNgNZRV5J5TFmmcsJ4IzsLkmGRiQbnYsBEQ==}
 
-  '@types/node@22.16.5':
-    resolution: {integrity: sha512-bJFoMATwIGaxxx8VJPeM8TonI8t579oRvgAuT8zFugJsJZgzqv0Fu8Mhp68iecjzG7cnN3mO2dJQ5uUM2EFrgQ==}
+  '@types/node@22.19.1':
+    resolution: {integrity: sha512-LCCV0HdSZZZb34qifBsyWlUmok6W7ouER+oQIGBScS8EsZsQbrtFTUrDX4hOl+CS6p7cnNC4td+qrSVGSCTUfQ==}
 
   '@types/parse-glob@3.0.32':
     resolution: {integrity: sha512-n4xmml2WKR12XeQprN8L/sfiVPa8FHS3k+fxp4kSr/PA2GsGUgFND+bvISJxM0y5QdvzNEGjEVU3eIrcKks/pA==}
@@ -3553,31 +3553,31 @@ snapshots:
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@types/bonjour@3.5.13':
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@types/browser-sync@2.29.1':
     dependencies:
       '@types/micromatch': 2.3.35
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
       '@types/serve-static': 1.15.7
       chokidar: 3.6.0
 
   '@types/connect-history-api-fallback@1.5.4':
     dependencies:
       '@types/express-serve-static-core': 4.19.6
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@types/cors@2.8.18':
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@types/css-declaration-sorter@6.0.4':
     dependencies:
@@ -3603,7 +3603,7 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.6':
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
       '@types/qs': 6.14.0
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -3619,7 +3619,7 @@ snapshots:
 
   '@types/http-proxy@1.17.16':
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@types/json-schema@7.0.15': {}
 
@@ -3635,9 +3635,9 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
-  '@types/node@22.16.5':
+  '@types/node@22.19.1':
     dependencies:
       undici-types: 6.21.0
 
@@ -3664,7 +3664,7 @@ snapshots:
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@types/serve-index@1.9.4':
     dependencies:
@@ -3673,12 +3673,12 @@ snapshots:
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
       '@types/send': 0.17.4
 
   '@types/sockjs@0.3.36':
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@types/strip-bom@3.0.0': {}
 
@@ -3692,7 +3692,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
 
   '@webassemblyjs/ast@1.14.1':
     dependencies:
@@ -4394,7 +4394,7 @@ snapshots:
   engine.io@6.6.4:
     dependencies:
       '@types/cors': 2.8.18
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -4835,7 +4835,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -5978,7 +5978,7 @@ snapshots:
       typescript: 5.8.3
       webpack: 5.101.0(@swc/core@1.11.29)
 
-  ts-node-dev@2.0.0(@swc/core@1.11.29)(@types/node@22.16.5)(typescript@5.8.3):
+  ts-node-dev@2.0.0(@swc/core@1.11.29)(@types/node@22.19.1)(typescript@5.8.3):
     dependencies:
       chokidar: 3.6.0
       dynamic-dedupe: 0.3.0
@@ -5988,7 +5988,7 @@ snapshots:
       rimraf: 2.7.1
       source-map-support: 0.5.21
       tree-kill: 1.2.2
-      ts-node: 10.9.2(@swc/core@1.11.29)(@types/node@22.16.5)(typescript@5.8.3)
+      ts-node: 10.9.2(@swc/core@1.11.29)(@types/node@22.19.1)(typescript@5.8.3)
       tsconfig: 7.0.0
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -5996,14 +5996,14 @@ snapshots:
       - '@swc/wasm'
       - '@types/node'
 
-  ts-node@10.9.2(@swc/core@1.11.29)(@types/node@22.16.5)(typescript@5.8.3):
+  ts-node@10.9.2(@swc/core@1.11.29)(@types/node@22.19.1)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.16.5
+      '@types/node': 22.19.1
       acorn: 8.14.1
       acorn-walk: 8.3.4
       arg: 4.1.3
