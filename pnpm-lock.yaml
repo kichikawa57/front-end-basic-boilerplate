@@ -15,8 +15,8 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2
       simple-parallax-js:
-        specifier: ^6.2.1
-        version: 6.2.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^6.3.3
+        version: 6.3.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       stylelint-prettier:
         specifier: ^5.0.3
         version: 5.0.3(prettier@3.6.2)(stylelint@16.22.0(typescript@5.8.3))
@@ -2645,8 +2645,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-parallax-js@6.2.1:
-    resolution: {integrity: sha512-d7D/r8bhxPcSPGgkMOfl3ByHqX/L4qtsvqnnyUMPRAIDWP75YYyeENq1Q8a2EFNAuTiD77oh4IgBHRt2hIqU/w==}
+  simple-parallax-js@6.3.3:
+    resolution: {integrity: sha512-drb/E9La5MRAq86RLi/Y4ku7l4wybZTDbWNq1mQdx/DbLlgf3YbZytw7Fe3p+MgtQQjIc9V63d7UK1Nc+DMk6Q==}
     peerDependencies:
       react: '>=17.0.0'
       react-dom: '>=17.0.0'
@@ -5651,7 +5651,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-parallax-js@6.2.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  simple-parallax-js@6.3.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
