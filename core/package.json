@@ -41,7 +41,7 @@
     "stylelint-scss": "^6.12.1",
     "svgo": "^4.0.0",
     "terser-webpack-plugin": "^5.3.14",
-    "webpack-dev-middleware": "^7.4.2",
+    "webpack-dev-middleware": "^7.4.5",
     "webpack-dev-server": "^5.2.2"
   }
 }
