@@ -49,8 +49,8 @@ importers:
         specifier: ^38.0.0
         version: 38.0.0(stylelint@16.22.0(typescript@5.8.3))
       ts-loader:
-        specifier: ^9.5.2
-        version: 9.5.2(typescript@5.8.3)(webpack@5.101.0(@swc/core@1.11.29))
+        specifier: ^9.5.4
+        version: 9.5.4(typescript@5.8.3)(webpack@5.101.0(@swc/core@1.11.29))
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@swc/core@1.11.29)(@types/node@22.16.5)(typescript@5.8.3)
@@ -2576,11 +2576,6 @@ packages:
     resolution: {integrity: sha512-th5B4L2U+eGLq1TVh7zNRGBapioSORUeymIydxgFpwww9d2qyKvtuPU2jJuHvYAwwqi2Y596QBL3eEqcPEYL8Q==}
     engines: {node: '>=10'}
 
-  semver@7.7.2:
-    resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.7.3:
     resolution: {integrity: sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==}
     engines: {node: '>=10'}
@@ -2906,8 +2901,8 @@ packages:
     resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
     hasBin: true
 
-  ts-loader@9.5.2:
-    resolution: {integrity: sha512-Qo4piXvOTWcMGIgRiuFa6nHNm+54HbYaZCKqc9eeZCLRy3XqafQgwX2F7mofrbJG3g7EEb+lkiR+z2Lic2s3Zw==}
+  ts-loader@9.5.4:
+    resolution: {integrity: sha512-nCz0rEwunlTZiy6rXFByQU1kVVpCIgUpc/psFiKVrUwrizdnIbRFu8w7bxhUF0X613DYwT4XzrZHpVyMe758hQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
@@ -5518,8 +5513,6 @@ snapshots:
       '@types/node-forge': 1.3.11
       node-forge: 1.3.1
 
-  semver@7.7.2: {}
-
   semver@7.7.3: {}
 
   send@0.19.0:
@@ -5975,12 +5968,12 @@ snapshots:
 
   tree-kill@1.2.2: {}
 
-  ts-loader@9.5.2(typescript@5.8.3)(webpack@5.101.0(@swc/core@1.11.29)):
+  ts-loader@9.5.4(typescript@5.8.3)(webpack@5.101.0(@swc/core@1.11.29)):
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.18.1
       micromatch: 4.0.8
-      semver: 7.7.2
+      semver: 7.7.3
       source-map: 0.7.4
       typescript: 5.8.3
       webpack: 5.101.0(@swc/core@1.11.29)
