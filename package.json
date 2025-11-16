@@ -17,7 +17,7 @@
     "stylelint": "^16.22.0",
     "stylelint-config-recommended-scss": "^15.0.1",
     "stylelint-config-standard": "^38.0.0",
-    "ts-loader": "^9.5.2",
+    "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "turbo": "^2.5.5",
