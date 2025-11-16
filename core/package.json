@@ -37,7 +37,7 @@
     "pug": "^3.0.3",
     "puglint-stylish": "^1.1.0",
     "sass": "^1.89.2",
-    "sharp": "^0.34.3",
+    "sharp": "^0.34.5",
     "stylelint-scss": "^6.12.1",
     "svgo": "^4.0.0",
     "terser-webpack-plugin": "^5.3.14",
