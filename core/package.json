@@ -36,7 +36,7 @@
     "postcss-scss": "^4.0.9",
     "pug": "^3.0.3",
     "puglint-stylish": "^1.1.0",
-    "sass": "^1.94.0",
+    "sass": "^1.94.1",
     "sharp": "^0.34.5",
     "stylelint-scss": "^6.12.1",
     "svgo": "^4.0.0",
