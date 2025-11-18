@@ -5,6 +5,7 @@
   "enabledManagers": ["npm"],
   "timezone": "Asia/Tokyo",
   "prConcurrentLimit": 1,
+  "platformAutomerge": true,
   "packageRules": [
     {
       "matchDepTypes": ["packageManager", "engines"],
