@@ -25,7 +25,7 @@
     "webpack": "^5.103.0"
   },
   "dependencies": {
-    "gsap": "^3.13.0",
+    "gsap": "^3.14.1",
     "prettier": "^3.7.4",
     "simple-parallax-js": "^6.3.3",
     "stylelint-prettier": "^5.0.3",
