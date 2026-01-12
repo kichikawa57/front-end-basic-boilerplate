@@ -42,6 +42,6 @@
     "svgo": "^4.0.0",
     "terser-webpack-plugin": "^5.3.16",
     "webpack-dev-middleware": "^7.4.5",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-dev-server": "^5.2.3"
   }
 }
